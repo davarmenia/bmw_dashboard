@@ -21,9 +21,10 @@ GAME_CLOCK = pygame.time.Clock()
 
 class InfoText():
     def __init__(self):
-        self.color_rgb = [1,1,1,1,1,1,1,1]
-        self.color_ind_to_change = -1
-        self.speed_values = ["30, 60, 90, 120, 150, 180, 210, 240"]
+        self.color_rgb = [0,0,0,0,0,0,0,0]
+        self.color_ind_to_change = [1,0,0,0,0,0,0,0]
+        self.color_ind_en = 0
+        self.speed_values = ["30", "60", "90", "120", "150", "180", "210", "240"]
         self.speed_values_position = [[100,100], [100,120], [100,140], [100,160], [100,180], [100,200], [100,220], [100,240]]
 
     def draw_numbers(self):
@@ -31,11 +32,14 @@ class InfoText():
         for id, value in enumerate(self.speed_values):
             text_for_show = "%s" % (value)
             text = font.render(text_for_show, True, (self.color_rgb[id], self.color_rgb[id], self.color_rgb[id]))
-            if id > self.color_ind_to_change:
-                if self.color_rgb[id] < 200:
-                    self.color_rgb[id] += 3
-                    if self.color_rgb[self.color_ind_to_change] > 100:
-                        self.color_ind_to_change += 1
+            if self.color_ind_to_change[id] and self.color_rgb[id] < 200:
+                self.color_rgb[id] += 5
+                if self.color_ind_en < len(self.color_rgb) - 1:
+                    if self.color_rgb[self.color_ind_en] > 40:
+                        self.color_ind_en += 1
+                    if self.color_ind_to_change[self.color_ind_en] == 0:
+                        self.color_ind_to_change[self.color_ind_en] = 1
+
             textRect = text.get_rect()
             textRect.left = (self.speed_values_position[id][0])
             textRect.top = (self.speed_values_position[id][1])
