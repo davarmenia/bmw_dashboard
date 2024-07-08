@@ -1,0 +1,1 @@
+There will be info, how to install and run dashboard
