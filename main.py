@@ -21,11 +21,11 @@ GAME_CLOCK = pygame.time.Clock()
 
 class InfoText():
     def __init__(self):
-        self.color_rgb = [0,0,0,0,0,0,0,0]
-        self.color_ind_to_change = [1,0,0,0,0,0,0,0]
+        self.color_rgb = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        self.color_ind_to_change = [1,0,0,0,0,0,0,0,0,0,0,0,0,0]
         self.color_ind_en = 0
-        self.speed_values = ["30", "60", "90", "120", "150", "180", "210", "240"]
-        self.speed_values_position = [[100,100], [100,120], [100,140], [100,160], [100,180], [100,200], [100,220], [100,240]]
+        self.speed_values = ["0", "20", "40", "60", "80", "100", "120", "140", "160", "180", "200", "220", "240", "260"]
+        self.speed_values_position = [[100,100], [100,120], [100,140], [100,160], [100,180], [100,200], [100,220], [100,240], [100,260], [100,280], [100,300], [100,320], [100,340], [100,360]]
 
     def draw_numbers(self):
         font = pygame.font.Font('AntonSC-Regular.ttf', 22)
